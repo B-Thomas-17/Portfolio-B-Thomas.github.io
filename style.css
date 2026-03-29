@@ -130,18 +130,60 @@
             .stage-section li{margin:8px 0;color:var(--muted)}
             /* Responsive stage detail */
             @media (max-width:760px){
-                .navlinks{display:none}
-                .hero{padding:20px}
-                .hero h1{font-size:28px}
-                form{grid-template-columns:1fr}
-                .grid{grid-template-columns:1fr}
+                .container{padding:12px}
+                .navlinks{display:flex;flex-direction:column;position:absolute;top:70px;right:0;background:var(--card);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:12px;min-width:150px;gap:8px}
+                .navlinks a{padding:8px 12px;font-size:13px}
+                nav{flex-direction:column;align-items:flex-start}
+                .logo{font-size:20px}
+                .hero{padding:16px 12px;flex-direction:column;gap:16px}
+                .hero h1{font-size:24px;line-height:1.3}
+                .hero p{font-size:14px}
+                .hero .cta{flex-direction:column;gap:12px}
+                .btn{padding:10px 16px;font-size:13px;width:100%}
+                form{grid-template-columns:1fr;gap:12px}
+                .grid{grid-template-columns:1fr;gap:16px}
+                .card{margin:0 auto;width:100%}
+                .thumb{height:150px}
                 .cert-card{flex-direction:column;gap:12px}
                 .cert-icon{font-size:40px}
-                .cert-details{flex-direction:column;gap:6px}
-                .stage-header{flex-direction:column;gap:16px}
-                .stage-image{max-width:100%;height:250px}
-                .stage-info h1{font-size:24px}
+                .cert-details{flex-direction:column;gap:6px;font-size:12px}
+                .stage-header{flex-direction:column;gap:12px}
+                .stage-image{max-width:100%;width:100%;height:200px;object-fit:cover}
+                .stage-info h1{font-size:22px;line-height:1.3}
+                .stage-info{min-width:100%}
+                .stage-meta{flex-direction:column;gap:8px;font-size:12px}
+                .stage-meta span{padding:4px 8px}
+                .stage-section{padding:16px;margin:20px 0}
+                .stage-section h2{font-size:18px}
+                section{padding:16px;margin:20px 0}
+                h2{font-size:22px}
+                .skills{gap:12px}
+                .skill{min-width:150px;padding:12px}
+                textarea{min-height:100px}
+                input,textarea,select{padding:10px;font-size:14px}
             }
+
+            @media (max-width:480px){
+                .container{padding:8px}
+                .hero{padding:12px 8px}
+                .hero h1{font-size:20px}
+                .hero p{font-size:13px}
+                .btn{padding:8px 14px;font-size:12px}
+                .card{width:100%}
+                .thumb{height:120px}
+                .grid{grid-template-columns:1fr;gap:12px}
+                section{padding:12px;margin:16px 0}
+                h2{font-size:20px;margin:0 0 12px 0}
+                .muted{font-size:13px}
+                .skills{flex-direction:column;gap:10px}
+                .skill{min-width:100%;width:100%}
+                .stage-info h1{font-size:18px}
+                .cert-card{padding:16px 12px}
+                .cert-icon{font-size:36px;min-width:50px}
+                .stage-meta span{font-size:10px;padding:3px 6px}
+            }
+
+            img{max-width:100%;height:auto;display:block}
             /* PDF Modal Viewer */
             .pdf-modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);backdrop-filter:blur(5px);z-index:9999;align-items:center;justify-content:center;animation:fadeIn 0.3s ease}
             .pdf-modal-content{position:relative;width:90%;height:90%;max-width:1000px;background:var(--card);border-radius:16px;box-shadow:0 10px 40px rgba(0,0,0,0.5);display:flex;overflow:hidden}
@@ -161,6 +203,13 @@
                 .cert-group{padding:16px;margin-bottom:24px}
                 .cert-group-title{font-size:18px}
                 .cert-viewer{height:300px}
+                .certifications-grid{grid-template-columns:1fr;gap:16px}
+            }
+            @media (max-width:480px){
+                .certifications-grid{grid-template-columns:1fr;gap:12px}
+                .cert-viewer{height:250px}
+                .cert-group{padding:12px;margin-bottom:16px}
+                .cert-group-title{font-size:16px}
             }
             /* Animations */
             @keyframes fadeIn {
