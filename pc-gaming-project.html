@@ -18,15 +18,24 @@
     </style>
 </head>
 <body>
-    <header class="container">
-        <nav style="display:flex;justify-content:space-between;align-items:center;">
-            <h1>PC Gaming (détails et étapes)</h1>
-            <a class="back" href="projets_pc.html">← Retour Projets PC</a>
-        </nav>
+    <header>
+        <div class="container">
+            <nav style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
+                <h1 style="margin:0;font-size:24px;">PC Gaming (détails et étapes)</h1>
+                <button id="hamburger" class="hamburger" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="navlinks" id="navlinks">
+                    <a href="projets_pc.html" style="text-decoration:none;">Retour Projets PC</a>
+                </div>
+            </nav>
+        </div>
     </header>
     <main class="container">
         <section>
-            <p class="muted">Ici vous trouvrez l'évolution de mon PC Gaming au fil du temps et de mon apprentissage, étape par étape jusqu'a aujourd'hui. </p>
+            <p class="muted">Ici vous trouvrez l'évolution de mon PC Gaming au fil du temps et de mon apprentissage, étape par étape jusqu'à aujourd'hui. </p>
             <h2>Étapes</h2>
             <ul>
                 <li>Étape 1 : Choix des composants</li>
@@ -44,7 +53,7 @@
                 <article class="step-card">
             
                     <h3>Étape 1 : Choix des composants</h3>
-                    <p class="comment">Je suis partis d'une base pour du gaming 1080p léger. </p>
+                    <p class="comment">Je suis parti d'une base pour du gaming 1080p léger. </p>
                     <list>
                         <li>CPU : I5 12400</li>
                         <li>GPU : GTX 1650LP</li>
@@ -58,7 +67,7 @@
                 <article class="step-card">
                     <img src="Asset/image/Photo PC Gmaing/Etape 1.jpeg" alt="Etape 2 - montage boîtier" />
                     <h3>Étape 2 : Montage du boîtier</h3>
-                    <p class="comment">Suite à des pannes de composants, j'ai du changer de RAM de carte graphique et de CPU.Je me suis aussi proqueré un nouveau boîtier ainsi qu'un watercooling 240 mm.</p>
+                    <p class="comment">Suite à des pannes de composants, j'ai dû changer de RAM, de carte graphique et de CPU. Je me suis aussi procuré un nouveau boîtier ainsi qu'un watercooling 240 mm.</p>
                     <list>
                         <li>CPU : I5 12600KF</li>
                         <li>GPU : GTX 1650</li>
@@ -72,7 +81,7 @@
                 <article class="step-card">
                     <img src="Asset/image/Photo PC Gmaing/Etape 2.jpeg" alt="Etape 3 - installation CPU" />
                     <h3>Étape 3 : Installation CPU/RAM</h3>
-                    <p class="comment">Pour être plus a l'aise avec les performances, j'ai opté pour plus de RAM une nouvelle carte graphique. et pour l'esthétique, j'ai choisi un boîtier blancavec une bonne ventilation.</p>
+                    <p class="comment">Pour être plus à l'aise avec les performances, j'ai opté pour plus de RAM et une nouvelle carte graphique. Pour l'esthétique, j'ai choisi un boîtier blanc avec une bonne ventilation.</p>
                     <list>
                         <li>CPU : I5 12600KF</li>
                         <li>GPU : RTX 3050 8GB</li>
@@ -100,7 +109,7 @@
                 <article class="step-card">
                     <img src="Asset/image/Photo PC Gmaing/Etape 5.jpeg" alt="Etape 5 - optimisation BIOS" />
                     <h3>Étape 5 : Optimisation BIOS</h3>
-                    <p class="comment">La dernnière modification a été de changer la 3050 qui devenait limite en gaming pour une RTX 5060.</p>
+                    <p class="comment">La dernière modification a été de changer la 3050 qui devenait limite en gaming pour une RTX 5060.</p>
                     <list>
                         <li>CPU : I5 12600KF</li>
                         <li>GPU : RTX 5060 8GB</li>

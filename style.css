@@ -35,6 +35,33 @@
                 transition: all 0.3s ease;
             }
             .navlinks a:hover{color:#fff;background:var(--glass);transform: translateY(-2px);}
+            
+            /* Hamburger menu */
+            .hamburger{
+                display:none;
+                flex-direction:column;
+                background:none;
+                border:none;
+                cursor:pointer;
+                gap:5px;
+                padding:8px;
+            }
+            .hamburger span{
+                width:24px;
+                height:2px;
+                background:var(--accent);
+                border-radius:2px;
+                transition:all 0.3s ease;
+            }
+            .hamburger.active span:nth-child(1){
+                transform:rotate(45deg) translate(8px, 8px);
+            }
+            .hamburger.active span:nth-child(2){
+                opacity:0;
+            }
+            .hamburger.active span:nth-child(3){
+                transform:rotate(-45deg) translate(7px, -7px);
+            }
             main{padding:36px 0}
             .hero{
                 display:flex;gap:24px;align-items:center;flex-wrap:wrap;padding:40px 24px;background:linear-gradient(90deg, rgba(14,165,163,0.1), transparent);
@@ -131,9 +158,33 @@
             /* Responsive stage detail */
             @media (max-width:760px){
                 .container{padding:12px}
-                .navlinks{display:flex;flex-direction:column;position:absolute;top:70px;right:0;background:var(--card);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:12px;min-width:150px;gap:8px}
-                .navlinks a{padding:8px 12px;font-size:13px}
-                nav{flex-direction:column;align-items:flex-start}
+                .hamburger{display:flex}
+                .navlinks{
+                    display:none;
+                    flex-direction:column;
+                    position:fixed;
+                    top:70px;
+                    left:0;
+                    right:0;
+                    background:linear-gradient(180deg, rgba(11,15,31,0.95), rgba(5,6,12,0.95));
+                    backdrop-filter:blur(10px);
+                    border-bottom:1px solid rgba(255,255,255,0.1);
+                    padding:20px;
+                    gap:12px;
+                    box-shadow:0 4px 20px var(--shadow);
+                    z-index:39;
+                }
+                .navlinks.active{
+                    display:flex;
+                }
+                .navlinks a{
+                    padding:12px 16px;
+                    font-size:14px;
+                    border-radius:8px;
+                    transition:all 0.3s ease;
+                }
+                .navlinks a:hover{background:var(--glass);color:#fff}
+                nav{flex-direction:row;align-items:center;justify-content:space-between}
                 .logo{font-size:20px}
                 .hero{padding:16px 12px;flex-direction:column;gap:16px}
                 .hero h1{font-size:24px;line-height:1.3}

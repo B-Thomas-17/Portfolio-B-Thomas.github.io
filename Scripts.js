@@ -1,3 +1,22 @@
+// Menu hamburger
+const hamburger = document.getElementById('hamburger');
+const navlinks = document.getElementById('navlinks');
+
+if(hamburger) {
+    hamburger.addEventListener('click', function() {
+        hamburger.classList.toggle('active');
+        navlinks.classList.toggle('active');
+    });
+    
+    // Fermer le menu quand on clique sur un lien
+    navlinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function() {
+            hamburger.classList.remove('active');
+            navlinks.classList.remove('active');
+        });
+    });
+}
+
 // Remplacer par votre adresse réelle
         const DEST_EMAIL = "contact@exemple.com";
 
