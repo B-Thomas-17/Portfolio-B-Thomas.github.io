@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Portfolio - Une page</title>
+
+    <!-- Lien vers ton CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">MonPortfolio</div>
+                <div class="navlinks">
+                    <a href="#about">À propos</a>
+                    <a href="#skills">Compétences</a>
+                    <a href="#projects">Projets</a>
+                    <a href="#stages">Stages</a>
+                    <a href="#certifications">Certifications</a>
+                    <a href="#veille">Veille</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero" id="home">
+            <div class="intro">
+                <h1>Bonjour — Je suis THOMAS Baptiste</h1>
+                <p class="muted">Développeur / Étudiant en informatique — Ceci est mon portfolio, vous pouvez y découvrir mes projets et compétences.</p>
+                <div class="cta">
+                    <a class="btn" href="#projects">Voir mes projets</a>
+                    <a class="btn secondary" href="#contact">Me contacter</a>
+                </div>
+            </div>
+
+        </section>
+
+        <section id="about" aria-labelledby="about-title">
+            <h2 id="about-title">À propos</h2>
+            <p class="muted">Étudiant passionné par l'informatique côté hardware j'ai decidé de suivre un BST SIO afin d'explorer les domaines du développement.</p>
+            <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap">
+                <div style="padding:12px;background:rgba(255,255,255,0.02);border-radius:10px">Localisation: FRANCE</div>
+                <div style="padding:12px;background:rgba(255,255,255,0.02);border-radius:10px">Disponibilité: Stage / Freelance</div>
+                <div style="padding:12px;background:rgba(255,255,255,0.02);border-radius:10px">Langues: FR, EN</div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Compétences</h2>
+            <div class="skills">
+                <div class="skill">
+                    <div style="display:flex;justify-content:space-between;align-items:center">
+                        <strong>HTML & CSS</strong><span class="muted">Avancé</span>
+                    </div>
+                    <div class="bar"><div class="progress" style="width:92%"></div></div>
+                </div>
+                <div class="skill">
+                    <div style="display:flex;justify-content:space-between;align-items:center">
+                        <strong>Maintenance informatique (hardware)</strong><span class="muted">Intermédiaire/Avancé</span>
+                    </div>
+                    <div class="bar"><div class="progress" style="width:82%"></div></div>
+                </div>
+                <div class="skill">
+                    <div style="display:flex;justify-content:space-between;align-items:center">
+                        <strong>JavaScript</strong><span class="muted">Intermédiaire</span>
+                    </div>
+                    <div class="bar"><div class="progress" style="width:70%"></div></div>
+                </div>
+                <div class="skill">
+                    <div style="display:flex;justify-content:space-between;align-items:center">
+                        <strong>Java</strong><span class="muted">Intermédiaire</span>
+                    </div>
+                    <div class="bar"><div class="progress" style="width:66%"></div></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Projets</h2>
+            <p class="muted">Ici vous trouverez une sélection de mes projets personnels et académiques.</p>
+            <div class="grid" aria-live="polite">
+                <article class="card">
+                    <div class="thumb">
+                        <a href="projets_pc.html" title="Projets PC">
+                            <img alt="Projets PC" src="Asset/image/Pc thumb.png">
+                        </a>
+                    </div>
+                    <div class="body">
+                        <strong>Projets PC</strong>
+                        <div class="muted">PC Gaming et Serveur</div>
+                        <div class="tags"><span class="tag">Hardware</span><span class="tag">PC</span></div>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="thumb">
+                        <a href="projets_web.html" title="Projets Web">
+                            <img alt="Projets Web" src="Asset/image/WEB Thumb.png">
+                        </a>
+                    </div>
+                    <div class="body">
+                        <strong>Projets Web</strong>
+                        <div class="muted">Dashboard, authentification, API</div>
+                        <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">PHP</span></div>
+                    </div>
+                </article>
+
+
+            </div>
+        </section>
+
+        <section id="stages">
+    <h2>Stages & Expériences professionnelles</h2>
+    <p class="muted">Cliquez sur une expérience pour voir les détails.</p>
+
+    <div class="grid">
+        <!-- Stage 2 - Campus (existant) -->
+        <article class="card">
+            <div class="thumb">
+                <a href="stage-campus.html" title="Stage - Campus">
+                    <img alt="Stage Campus" src="Asset/image/univ-antilles.webp">
+                </a>
+            </div>
+            <div class="body">
+                <strong>Stage Campus</strong>
+                <div class="muted">01/2024 - 05/2024 · Prototype d'application interne</div>
+                <div class="tags">
+                    <span class="tag">Node</span>
+                    <span class="tag">API</span>
+                </div>
+            </div>
+        </article>
+        <!-- Stage 1 - PC COM LAND (existant) -->
+        <article class="card">
+            <div class="thumb">
+                <a href="stage-pccom.html" title="Rapport de stage PC COM LAND">
+                    <img alt="Rapport de stage" src="Asset/image/PC com land.jpg">
+                </a>
+            </div>
+            <div class="body">
+                <strong>Stage PC COM LAND</strong>
+                <div class="muted">05/2025 - 06/2025 · Rapport intégré</div>
+                <div class="tags">
+                    <span class="tag">Audit</span>
+                    <span class="tag">Procédures</span>
+                    <span class="tag">Performance</span>
+                </div>
+            </div>
+        </article>
+        <!-- Stage 6 - Job d'été Assurance (nouveau) -->
+        <article class="card">
+            <div class="thumb">
+                <a href="job-ete.html" title="Job d'été - Assurance professionnelle">
+                    <img alt="Job été Assurance" src="Asset/image/Ananas Capron.webp">
+                </a>
+            </div>
+            <div class="body">
+                <strong>Job d'été - Assurance professionnelle</strong>
+                <div class="muted">Année - Mois · Champ d'ananas</div>
+                <div class="tags">
+                    <span class="tag">À remplir</span>
+                    <span class="tag">À remplir</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- Stage 4 - Architecte 1 (nouveau) -->
+        <article class="card">
+            <div class="thumb">
+                <a href="stage-architecte-1.html" title="Stage - Cabinet d'architecture">
+                    <img alt="Stage Architecte 1" src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=60&fit=crop">
+                </a>
+            </div>
+            <div class="body">
+                <strong>Stage - Cabinet d'architecture (1)</strong>
+                <div class="muted">Année - Mois · Description à ajouter</div>
+                <div class="tags">
+                    <span class="tag">À remplir</span>
+                    <span class="tag">À remplir</span>
+                </div>
+            </div>
+        </article>
+
+
+        <!-- Stage 3 - SOMAC (nouveau) -->
+        <article class="card">
+            <div class="thumb">
+                <a href="stage-somac.html" title="Stage - Somac">
+                    <img alt="Stage SOMAC" src="Asset/image/Somaquin.jpg">
+                </a>
+            </div>
+            <div class="body">
+                <strong>Stage SOMAC</strong>
+                <div class="muted">Année - Mois · Description à ajouter</div>
+                <div class="tags">
+                    <span class="tag">À remplir</span>
+                    <span class="tag">À remplir</span>
+                </div>
+            </div>
+        </article>
+
+
+    </div>
+        </section>
+
+        <section id="certifications">
+            <h2>Certifications</h2>
+            <p class="muted">Diplômes et certifications professionnelles obtenues dans mon parcours informatique.</p>
+            <div style="text-align:center;margin-top:20px">
+                <a href="certifications.html" class="btn">Voir toutes mes certifications →</a>
+            </div>
+        </section>
+
+        <section id="veille">
+            <h2>Veille Technologique</h2>
+            <p class="muted">Articles, ressources et bibliothèques que je suis régulièrement.</p>
+            <div class="feed">
+                <a href="https://blog.cloudflare.com" target="_blank" rel="noopener">Cloudflare Blog — Perf et edge</a>
+                <a href="https://web.dev" target="_blank" rel="noopener">web.dev — Bonnes pratiques web</a>
+                <a href="https://dev.to" target="_blank" rel="noopener">DEV Community — Tutoriaux</a>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact / Candidature stage & projet</h2>
+            <p class="muted">Remplissez le formulaire pour proposer un stage ou un projet. Le bouton construit un email prêt à être envoyé. Changez l'adresse destinataire dans le script si nécessaire.</p>
+
+            <form id="contactForm" onsubmit="return handleSubmit(event)">
+                <input name="name" placeholder="Nom complet" required />
+                <input name="email" type="email" placeholder="Email" required />
+                <select name="type" required>
+                    <option value="">Je contacte pour...</option>
+                    <option value="Stage">Stage</option>
+                    <option value="Projet">Projet</option>
+                    <option value="Autre">Autre</option>
+                </select>
+                <input name="company" placeholder="Entreprise / École (facultatif)" />
+                <textarea name="message" placeholder="Message / Détails" class="full" required></textarea>
+                <div class="full" style="display:flex;gap:12px;align-items:center;justify-content:space-between">
+                    <div class="note">En cliquant sur Envoyer, votre client mail s'ouvrira pour finaliser l'envoi.</div>
+                    <button class="btn" type="submit">Envoyer</button>
+                </div>
+            </form>
+        </section>
+
+        <footer>
+            <div>© <span id="year"></span> — MonPortfolio • <span class="muted">Modèle one-page</span></div>
+        </footer>
+
+    </main>
+    <!-- Script externe -->
+    <script src="Scripts.js"></script>
+</body>
+</html>

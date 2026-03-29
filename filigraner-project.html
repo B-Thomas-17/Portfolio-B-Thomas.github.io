@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Project Filigraner - MonPortfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .project-hero { margin: 24px 0; }
+        .project-hero h1 { margin-bottom: 8px; }
+        .project-grid { display: grid; gap: 16px; margin-top: 20px; }
+        .project-grid img { width: 100%; border-radius: 10px; border: 1px solid rgba(255,255,255,.12); }
+        .badge { display: inline-block; margin: 0 4px 8px 0; background:#24292f; color:#c9d1d9; padding:3px 8px; border-radius:7px; font-size:13px; }
+        .code-sample { background:#0d1117; color:#c9d1d9; padding:14px; border-radius:10px; overflow:auto; border:1px solid #30363d; }
+        .btn { text-decoration:none; padding:10px 16px; border-radius:8px; font-weight:700; display:inline-block; margin-right:6px; }
+        .btn-back { background:#0366d6; color:white; }
+        .btn-live { background:#28a745; color:white; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo"><a href="index.html" style="color: inherit; text-decoration: none;">MonPortfolio</a></div>
+                <div class="navlinks"><a href="projets_web.html" style="color: inherit; text-decoration: none;">Retour Projets Web</a></div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="project-hero">
+            <h1>Filigraner - Générateur de filigranes pour images</h1>
+            <p class="muted">App Web locale pour ajouter des filigranes personnalisés sur vos images et PDFs, entièrement traitée côté client.</p>
+            <div>
+                <span class="badge">JavaScript</span>
+                <span class="badge">Canvas API</span>
+                <span class="badge">PDF.js</span>
+                <span class="badge">Frontend</span>
+            </div>
+
+            <p>
+                Utilisez l'application ci-dessous pour tester la génération de filigranes en temps réel, puis consultez les parties clés du code.
+            </p>
+
+            <div style="margin-top:10px;">
+                <a href="projets_web.html" class="btn btn-back">Retour aux Projets Web</a>
+                <a href="Filigraner.html" target="_blank" rel="noopener" class="btn btn-live">Ouvrir en mode plein écran</a>
+            </div>
+        </section>
+
+        <section>
+            <iframe src="Filigraner.html" title="Demo Filigraner" style="width:100%;height:800px;border:1px solid #ccc;border-radius:10px;" aria-label="Démo Filigraner"></iframe>
+        </section>
+
+        <section style="margin-top:24px;">
+            <h2>1. Fonctionnalités principales</h2>
+            <ul>
+                <li>Support des images (JPG, PNG, etc.) et des PDFs.</li>
+                <li>Personnalisation complète du filigrane: texte, taille, angle, opacité.</li>
+                <li>Modes: filigrane centré ou répété sur toute l'image.</li>
+                <li>Styles variés: normal, gras, italique, avec ombre.</li>
+                <li>Téléchargement direct de l'image avec filigrane (PNG).</li>
+                <li>Traitement 100% local, aucune donnée n'est envoyée.</li>
+            </ul>
+        </section>
+
+        <section style="margin-top:24px;">
+            <h2>2. Extrait de code - Fonction de génération</h2>
+            <div class="code-sample"><pre><code>function generateWatermark() {
+    if(!uploadedImage) {
+        alert('Veuillez d\'abord sélectionner une image');
+        return;
+    }
+    
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    
+    canvas.width = uploadedImage.width;
+    canvas.height = uploadedImage.height;
+    
+    ctx.drawImage(uploadedImage, 0, 0);
+    
+    const text = document.getElementById('watermarkText').value;
+    const angle = document.getElementById('angle').value;
+    const fontSize = document.getElementById('fontSize').value;
+    const opacity = document.getElementById('opacity').value / 100;
+    const style = document.getElementById('style').value;
+    
+    ctx.save();
+    ctx.globalAlpha = opacity;
+    ctx.font = `${style === 'bold' ? 'bold ' : ''}${fontSize}px Arial`;
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
+    
+    // Mode répété ou centré
+    const mode = document.getElementById('mode').value;
+    if(mode === 'repeat') {
+        // Boucle sur toute l'image
+        const spacing = 100;
+        for(let x = 0; x < canvas.width; x += spacing) {
+            for(let y = 0; y < canvas.height; y += spacing) {
+                ctx.save();
+                ctx.translate(x, y);
+                ctx.rotate((angle * Math.PI) / 180);
+                ctx.fillText(text, 0, 0);
+                ctx.restore();
+            }
+        }
+    } else {
+        // Centré
+        ctx.translate(canvas.width / 2, canvas.height / 2);
+        ctx.rotate((angle * Math.PI) / 180);
+        ctx.textAlign = 'center';
+        ctx.fillText(text, 0, 0);
+    }
+    
+    ctx.restore();
+}</code></pre></div>
+        </section>
+
+        <section style="margin-top:24px;">
+            <h2>3. Explication technique</h2>
+            <p>L'application utilise <strong>Canvas API</strong> pour dessiner le filigrane dynamiquement sur l'image. Les étapes principales sont:</p>
+            <ul style="margin-top: 10px;">
+                <li><strong>Chargement:</strong> Les images sont lues via FileReader et les PDFs via PDF.js</li>
+                <li><strong>Rendu:</strong> L'image est dessinée sur le canvas, puis le filigrane est superposé</li>
+                <li><strong>Transformation:</strong> Rotation, opacité, styles appliqués via le contexte 2D du canvas</li>
+                <li><strong>Mode répété:</strong> Boucles imbriquées pour couvrir toute la surface</li>
+                <li><strong>Export:</strong> Le canvas est converti en PNG via <code>toDataURL()</code></li>
+            </ul>
+            <p style="margin-top: 10px;">Le traitement se fait entièrement dans le navigateur, ce qui garantit la confidentialité totale des documents.</p>
+        </section>
+
+        <footer style="margin-top:40px;">
+            <div>© <span id="year"></span> — MonPortfolio • <span class="muted">Filigraner Project</span></div>
+        </footer>
+    </main>
+
+    <script src="Scripts.js"></script>
+</body>
+</html>

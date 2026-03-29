@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Campus App - MonPortfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .container { max-width: 1100px; margin: auto; }
+        .cards {display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;}
+        .card-small {background:#0f172a;padding:16px;border-radius:12px;border:1px solid #1e293b;}
+        .card-small h3{margin-top:0;}
+        .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;}
+        .gallery img{width:100%;border-radius:10px;border:1px solid #334155;cursor:pointer;transition:transform .2s ease;}
+        .gallery img:hover{transform:scale(1.02);}
+        .lightbox{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.85);z-index:1000;}
+        .lightbox img{max-width:90%;max-height:90%;border:2px solid #fff;border-radius:8px;box-shadow:0 0 24px rgba(0,0,0,.8);}
+        .lightbox .close{position:absolute;top:18px;right:18px;color:#fff;font-size:28px;font-weight:700;cursor:pointer;}
+        .badge{display:inline-block;padding:4px 10px;margin:2px;background:#1d4ed8;color:white;border-radius:999px;font-size:12px;}
+        .back:link,.back:visited{padding:10px 14px;background:#0b7285;color:#fff;border-radius:10px;text-decoration:none;display:inline-block;margin-bottom:16px;}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav style="display:flex;justify-content:space-between;align-items:center;">
+                <div class="logo"><a href="index.html" style="color:inherit;text-decoration:none;">MonPortfolio</a></div>
+                <div><a class="back" href="projets_web.html">← Projets Web</a></div>
+            </nav>
+        </div>
+    </header>
+    <main class="container" style="margin-top:24px;">
+        <h1>Campus App</h1>
+        <p class="muted">Projet client multi-roles pour gestion de campus en production. Application full-stack développée en mode agile pour un campus privé, avec 3 interfaces spécialisées selon les profils utilisateurs.</p>
+        <p><span class="badge">React</span><span class="badge">Node</span><span class="badge">PostgreSQL</span><span class="badge">SSO</span><span class="badge">Sécurité</span></p>
+
+        <section style="margin-top:20px;text-align:center;">
+            <h2>Points de vue par rôle</h2>
+            <p class="muted">Cliquez sur un rôle pour découvrir l'interface dédiée et ses fonctionnalités.</p>
+            <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:16px;">
+                <a href="#missionnaire" class="btn" style="background:#7f5af0;color:white;text-decoration:none;padding:12px 20px;border-radius:8px;">Missionnaire</a>
+                <a href="#superviseur" class="btn" style="background:#ff7b72;color:white;text-decoration:none;padding:12px 20px;border-radius:8px;">Superviseur</a>
+                <a href="#gestionnaire" class="btn" style="background:#2ea44f;color:white;text-decoration:none;padding:12px 20px;border-radius:8px;">Gestionnaire</a>
+            </div>
+        </section>
+
+        <section id="missionnaire" style="margin-top:40px;">
+            <h2>Interface Missionnaire</h2>
+            <p class="muted">Interface terrain pour la collecte de données et la saisie opérationnelle.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;">
+                <div style="flex:1;min-width:300px;">
+                    <h3>Fonctionnalités clés</h3>
+                    <ul>
+                        <li>Formulaires dynamiques adaptatifs</li>
+                        <li>Saisie offline avec synchronisation</li>
+                        <li>Upload de photos et documents</li>
+                        <li>Géolocalisation automatique</li>
+                        <li>Validation en temps réel</li>
+                    </ul>
+                    <h3>Contexte d'usage</h3>
+                    <p>Utilisé sur le terrain pour collecter des données précises et fiables, avec une interface optimisée pour mobile et tablette.</p>
+                </div>
+                <div style="flex:1;min-width:300px;">
+                    <h3>Captures d'écran</h3>
+                    <div class="gallery">
+                        <img src="Asset/image/Photo UA mission/Missionaire Acceuil.png" alt="Missionnaire - Accueil" onerror="this.style.display='none'">
+                        <img src="Asset/image/Photo UA mission/General Formulaire de creation de mission.png" alt="Missionnaire - Formulaire" onerror="this.style.display='none'">
+                        <img src="Asset/image/Photo UA mission/Exemple Detail de mission.png" alt="Missionnaire - Détail" onerror="this.style.display='none'">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="superviseur" style="margin-top:40px;">
+            <h2>Interface Superviseur</h2>
+            <p class="muted">Tableau de bord de supervision et validation des opérations.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;">
+                <div style="flex:1;min-width:300px;">
+                    <h3>Fonctionnalités clés</h3>
+                    <ul>
+                        <li>Dashboard avec KPIs temps réel</li>
+                        <li>Validation et approbation des données</li>
+                        <li>Système de notifications et alertes</li>
+                        <li>Messagerie interne</li>
+                        <li>Historique et traçabilité</li>
+                    </ul>
+                    <h3>Contexte d'usage</h3>
+                    <p>Permet de superviser les opérations, valider les données collectées et maintenir la qualité des processus.</p>
+                </div>
+                <div style="flex:1;min-width:300px;">
+                    <h3>Captures d'écran</h3>
+                    <div class="gallery">
+                        <img src="Asset/image/Photo UA mission/Superviseur Acceuil.png" alt="Superviseur - Accueil" onerror="this.style.display='none'">
+                        <img src="Asset/image/Photo UA mission/Superviseur Exemple gestion de mission.png" alt="Superviseur - Gestion" onerror="this.style.display='none'">
+                        <img src="Asset/image/Photo UA mission/Gestionnaire de missionaire.png" alt="Superviseur - Gestion missionnaire" onerror="this.style.display='none'">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gestionnaire" style="margin-top:40px;">
+            <h2>Interface Gestionnaire</h2>
+            <p class="muted">Administration et paramétrage de l'application.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;">
+                <div style="flex:1;min-width:300px;">
+                    <h3>Fonctionnalités clés</h3>
+                    <ul>
+                        <li>Gestion des utilisateurs et rôles</li>
+                        <li>Configuration des formulaires</li>
+                        <li>Reporting et export de données</li>
+                        <li>Paramétrage des workflows</li>
+                        <li>API et intégrations</li>
+                    </ul>
+                    <h3>Contexte d'usage</h3>
+                    <p>Outil d'administration pour configurer et maintenir l'application selon les besoins évolutifs.</p>
+                </div>
+                <div style="flex:1;min-width:300px;">
+                    <h3>Captures d'écran</h3>
+                    <div class="gallery">
+                        <img src="Asset/image/Photo UA mission/Gestionnaire Acceuil.png" alt="Gestionnaire - Accueil" onerror="this.style.display='none'">
+                        <img src="Asset/image/Photo UA mission/Gestionnaire gestion de document.png" alt="Gestionnaire - Documents" onerror="this.style.display='none'">
+                        <img src="Asset/image/Photo UA mission/Gestionnaire gestion de document 2.png" alt="Gestionnaire - Documents 2" onerror="this.style.display='none'">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section style="margin-top:40px;text-align:center;">
+            <h2>Impact & Résultats</h2>
+            <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:16px;">
+                <div class="card-small" style="text-align:center;">
+                    <strong>+200 utilisateurs</strong><br>
+                    <span class="muted">actifs quotidiens</span>
+                </div>
+                <div class="card-small" style="text-align:center;">
+                    <strong>-30% temps</strong><br>
+                    <span class="muted">de traitement</span>
+                </div>
+                <div class="card-small" style="text-align:center;">
+                    <strong>99.5% uptime</strong><br>
+                    <span class="muted">disponibilité</span>
+                </div>
+            </div>
+        </section>
+
+        <footer style="margin-top:40px;">
+            <div>© <span id="year"></span> — MonPortfolio • <span class="muted">Campus App</span></div>
+        </footer>
+    </main>
+
+    <div id="lightbox" class="lightbox" aria-hidden="true">
+        <span class="close" aria-label="Fermer">×</span>
+        <img id="lightbox-image" src="" alt="Agrandissement" />
+    </div>
+
+    <script>
+        document.querySelectorAll('.gallery img').forEach(img => {
+            img.addEventListener('click', () => {
+                const lightbox = document.getElementById('lightbox');
+                const lightboxImage = document.getElementById('lightbox-image');
+                lightboxImage.src = img.src;
+                lightboxImage.alt = img.alt || 'Image agrandie';
+                lightbox.style.display = 'flex';
+                lightbox.setAttribute('aria-hidden', 'false');
+            });
+        });
+
+        document.querySelector('#lightbox .close').addEventListener('click', () => {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.style.display = 'none';
+            lightbox.setAttribute('aria-hidden', 'true');
+        });
+
+        document.getElementById('lightbox').addEventListener('click', (e) => {
+            if (e.target.id === 'lightbox') {
+                e.currentTarget.style.display = 'none';
+                e.currentTarget.setAttribute('aria-hidden', 'true');
+            }
+        });
+    </script>
+
+    <script src="Scripts.js"></script>
+</body>
+</html>

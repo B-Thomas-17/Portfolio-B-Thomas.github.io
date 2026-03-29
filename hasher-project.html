@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Project Hasher - MonPortfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .project-hero { margin: 24px 0; }
+        .project-hero h1 { margin-bottom: 8px; }
+        .project-grid { display: grid; gap: 16px; margin-top: 20px; }
+        .project-grid img { width: 100%; border-radius: 10px; border: 1px solid rgba(255,255,255,.12); }
+        .badge { display: inline-block; margin: 0 4px 8px 0; background:#24292f; color:#c9d1d9; padding:3px 8px; border-radius:7px; font-size:13px; }
+        .code-sample { background:#0d1117; color:#c9d1d9; padding:14px; border-radius:10px; overflow:auto; border:1px solid #30363d; }
+        .btn { text-decoration:none; padding:10px 16px; border-radius:8px; font-weight:700; display:inline-block; margin-right:6px; }
+        .btn-back { background:#0366d6; color:white; }
+        .btn-live { background:#28a745; color:white; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo"><a href="index.html" style="color: inherit; text-decoration: none;">MonPortfolio</a></div>
+                <div class="navlinks"><a href="projets_web.html" style="color: inherit; text-decoration: none;">Retour Projets Web</a></div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="project-hero">
+            <h1>Hasher - Générateur de mot de passe sécurisé</h1>
+            <p class="muted">App Web locale (hors ligne) pour créer un mot de passe unique par service à partir d'un mot de passe maître.</p>
+            <div>
+                <span class="badge">JavaScript</span>
+                <span class="badge">Crypto API</span>
+                <span class="badge">Frontend</span>
+                <span class="badge">UX</span>
+            </div>
+
+            <p>
+                Utilisez le projecteur ci-dessous pour tester l’application sans quitter la page, puis consultez les parties clés du code et l'explication.
+            </p>
+
+            <div style="margin-top:10px;">
+                <a href="projets_web.html#hasher-demo" class="btn btn-back">Retour à la section Hasher</a>
+                <a href="Hasher.html" target="_blank" rel="noopener" class="btn btn-live">Ouvrir Hasher en mode plein écran</a>
+            </div>
+        </section>
+
+        <section>
+            <iframe src="Hasher.html" title="Demo Hasher" style="width:100%;height:460px;border:1px solid #ccc;border-radius:10px;" aria-label="Démo Hasher"></iframe>
+        </section>
+
+        <section style="margin-top:24px;">
+            <h2>1. Fonctionnalité principale</h2>
+            <ul>
+                <li>Entrées: mot de passe maître + service.</li>
+                <li>Hash sécurisé via <code>crypto.subtle.digest('SHA-256', ...)</code>.</li>
+                <li>Transformation du hash en mot de passe de 16 caractères.</li>
+                <li>Pas de stockage spécifique côté serveur; tout reste local.</li>
+            </ul>
+        </section>
+
+        <section style="margin-top:24px;">
+            <h2>2. Extrait de code</h2>
+            <div class="code-sample"><pre><code>async function generate() {
+    const master = document.getElementById("master").value;
+    const service = document.getElementById("service").value;
+
+    if (!master || !service) {
+        alert("Remplis les champs");
+        return;
+    }
+
+    const text = master + "::" + service;
+    const encoder = new TextEncoder();
+    const data = encoder.encode(text);
+
+    const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+
+    const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+";
+    let password = "";
+
+    hashArray.forEach(byte => {
+        password += chars[byte % chars.length];
+    });
+
+    document.getElementById("result").value = password.slice(0, 16);
+}</code></pre></div>
+        </section>
+
+        <section style="margin-top:24px;">
+            <h2>3. Explication</h2>
+            <p>Le code génère une chaîne unique par service via un hachage SHA-256 du couple <strong>master + service</strong>. Ce hachage est mappé sur un ensemble de caractères sécurisé avant d’être tronqué à 16 caractères pour former le mot de passe.</p>
+            <p>Ce pattern donne un mot de passe reproductible (pour le même master+service) tout en évitant de les stocker (via la crypto native du navigateur).</p>
+        </section>
+
+        <footer style="margin-top:40px;">
+            <div>© <span id="year"></span> — MonPortfolio • <span class="muted">Hasher Project</span></div>
+        </footer>
+    </main>
+
+    <script src="Scripts.js"></script>
+</body>
+</html>

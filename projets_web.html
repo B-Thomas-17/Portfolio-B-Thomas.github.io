@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Projets Web</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo"><a href="index.html" style="color: inherit; text-decoration: none;">MonPortfolio</a></div>
+                <div class="navlinks">
+                    <a href="index.html#projects">Retour aux Projets</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section>
+            <h1>Mes Projets Web</h1>
+            <p class="muted">Découvrez mes applications web : dashboard, gestion de tâches et API.</p>
+        </section>
+
+        <section>
+            <div class="grid" aria-live="polite">
+                <article class="card">
+                    <div class="thumb">
+                        <a href="hasher-project.html" title="Hasher - Générateur de mot de passe">
+                            <img alt="Hasher" src="Asset/image/WEB Thumb.png">
+                        </a>
+                    </div>
+                    <div class="body">
+                        <strong>Hasher</strong>
+                        <div class="muted">Générateur local de mot de passe sécurisé</div>
+                        <div class="tags"><span class="tag">JavaScript</span><span class="tag">Crypto API</span><span class="tag">Frontend</span></div>
+                        <div style="margin-top:8px;font-size:13px;"><a href="Hasher.html" target="_blank" rel="noopener">Page source</a></div>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="thumb">
+                        <a href="campus-project.html" title="Campus App - Multi-rôles">
+                            <img alt="Campus App" src="Asset/image/WEB Thumb.png">
+                        </a>
+                    </div>
+                    <div class="body">
+                        <strong>Campus App</strong>
+                        <div class="muted">Multi-roles : Missionnaire / Superviseur / Gestionnaire</div>
+                        <div class="tags"><span class="tag">React</span><span class="tag">Node</span><span class="tag">B2B</span></div>
+                        <div style="margin-top:8px;font-size:13px;"><em>Code client confidentiel</em></div>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="thumb">
+                        <a href="filigraner-project.html" title="Filigraner - Générateur de filigranes">
+                            <img alt="Filigraner" src="Asset/image/WEB Thumb.png">
+                        </a>
+                    </div>
+                    <div class="body">
+                        <strong>Filigraner</strong>
+                        <div class="muted">Générateur local de filigranes pour images</div>
+                        <div class="tags"><span class="tag">JavaScript</span><span class="tag">Canvas API</span><span class="tag">Frontend</span></div>
+                        <div style="margin-top:8px;font-size:13px;"><a href="Filigraner.html" target="_blank" rel="noopener">Page source</a></div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <footer>
+            <div>© <span id="year"></span> — MonPortfolio • <span class="muted">Projets Web</span></div>
+        </footer>
+    </main>
+
+    <script src="Scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>PC Gaming - MonPortfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .container{max-width:1100px;margin:auto;}
+        .back{display:inline-block;margin-bottom:20px;padding:10px 14px;background:#0b7285;color:white;border-radius:8px;text-decoration:none;}
+        .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;}
+        .gallery img{width:100%;border-radius:10px;cursor:pointer;transition:transform .2s ease;}
+        .gallery img:hover{transform:scale(1.03);}
+        .lightbox{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.85);z-index:1000;}
+        .lightbox img{max-width:90%;max-height:90%;border:2px solid #fff;border-radius:8px;box-shadow:0 0 24px rgba(0,0,0,.8);}
+        .lightbox .close{position:absolute;top:20px;right:20px;color:#fff;font-size:32px;font-weight:700;cursor:pointer;}
+        .step-card img{max-width:400px;height:auto;}
+    </style>
+</head>
+<body>
+    <header class="container">
+        <nav style="display:flex;justify-content:space-between;align-items:center;">
+            <h1>PC Gaming (détails et étapes)</h1>
+            <a class="back" href="projets_pc.html">← Retour Projets PC</a>
+        </nav>
+    </header>
+    <main class="container">
+        <section>
+            <p class="muted">Ici vous trouvrez l'évolution de mon PC Gaming au fil du temps et de mon apprentissage, étape par étape jusqu'a aujourd'hui. </p>
+            <h2>Étapes</h2>
+            <ul>
+                <li>Étape 1 : Choix des composants</li>
+                <li>Étape 2 : Montage du boîtier et du refroidissement</li>
+                <li>Étape 3 : Installation CPU/RAM/Carte graphique</li>
+                <li>Étape 4 : Câblage et tests post-assembly</li>
+                <li>Étape 5 : Optimisation BIOS et overclock</li>
+                <li>Étape 6 : Test performances et gaming</li>
+            </ul>
+        </section>
+
+        <section style="margin-top:24px;">
+
+            <div class="steps">
+                <article class="step-card">
+            
+                    <h3>Étape 1 : Choix des composants</h3>
+                    <p class="comment">Je suis partis d'une base pour du gaming 1080p léger. </p>
+                    <list>
+                        <li>CPU : I5 12400</li>
+                        <li>GPU : GTX 1650LP</li>
+                        <li>RAM : 16GB DDR4 3200MHz</li>
+                        <li>Stockage : SSD NVMe 250GB + HDD 1TB</li>
+                        <li>Alimentation : 550W 80+ Gold</li>
+                        <li>Boîtier : Zalman T6 ATX</li>
+                    </list>
+                </article>
+
+                <article class="step-card">
+                    <img src="Asset/image/Photo PC Gmaing/Etape 1.jpeg" alt="Etape 2 - montage boîtier" />
+                    <h3>Étape 2 : Montage du boîtier</h3>
+                    <p class="comment">Suite à des pannes de composants, j'ai du changer de RAM de carte graphique et de CPU.Je me suis aussi proqueré un nouveau boîtier ainsi qu'un watercooling 240 mm.</p>
+                    <list>
+                        <li>CPU : I5 12600KF</li>
+                        <li>GPU : GTX 1650</li>
+                        <li>RAM : 16GB DDR4 3600MHz</li>
+                        <li>Stockage : SSD NVMe 750GB + HDD 1TB</li>
+                        <li>Alimentation : 550W 80+ Gold</li>
+                        <li>Boîtier : AeroCool Shard-G-BK</li>
+                    </list>
+                </article>
+
+                <article class="step-card">
+                    <img src="Asset/image/Photo PC Gmaing/Etape 2.jpeg" alt="Etape 3 - installation CPU" />
+                    <h3>Étape 3 : Installation CPU/RAM</h3>
+                    <p class="comment">Pour être plus a l'aise avec les performances, j'ai opté pour plus de RAM une nouvelle carte graphique. et pour l'esthétique, j'ai choisi un boîtier blancavec une bonne ventilation.</p>
+                    <list>
+                        <li>CPU : I5 12600KF</li>
+                        <li>GPU : RTX 3050 8GB</li>
+                        <li>RAM : 32GB DDR4 3600MHz (2x8 Corsair Vengeance, 2x8 Kingston Fury Beast)</li>
+                        <li>Stockage : SSD NVMe 750GB + HDD 1TB</li>
+                        <li>Alimentation : 850W 80+ Gold</li>
+                        <li>Boîtier : M.RED Cobalt Blanc</li>
+                    </list>
+                </article>
+
+                <article class="step-card">
+                    <img src="Asset/image/Photo PC Gmaing/Etape 4.jpeg" alt="Etape 4 - câblage" />
+                    <h3>Étape 4 : Câblage</h3>
+                    <p class="comment">Suite a la pane de deux de mes barres de RAM, je les remplacer par 2 Nouvelles barres de 16GB puis j'ai ajouté du stockage.</p>
+                    <list>
+                        <li>CPU : I5 12600KF</li>
+                        <li>GPU : RTX 3050 8GB</li>
+                        <li>RAM : 32GB DDR4 3600MHz (2x16 Corsair Vengeance)</li>
+                        <li>Stockage : SSD NVMe 1To + HDD 1TB + SSD SATA 250GB</li>
+                        <li>Alimentation : 850W 80+ Gold</li>
+                        <li>Boîtier : M.RED Cobalt Blanc</li>
+                    </list>
+                </article>
+
+                <article class="step-card">
+                    <img src="Asset/image/Photo PC Gmaing/Etape 5.jpeg" alt="Etape 5 - optimisation BIOS" />
+                    <h3>Étape 5 : Optimisation BIOS</h3>
+                    <p class="comment">La dernnière modification a été de changer la 3050 qui devenait limite en gaming pour une RTX 5060.</p>
+                    <list>
+                        <li>CPU : I5 12600KF</li>
+                        <li>GPU : RTX 5060 8GB</li>
+                        <li>RAM : 32GB DDR4 3600MHz (2x16 Corsair Vengeance)</li>
+                        <li>Stockage : SSD NVMe 1To + HDD 1TB + SSD SATA 250GB</li>
+                        <li>Alimentation : 850W 80+ Gold</li>
+                        <li>Boîtier : M.RED Cobalt Blanc</li>
+                    </list>
+                    <img src="Asset/image/Photo PC Gmaing/Etape 6.jpeg" alt="Etape 6 - test perf" />
+                </article>
+
+
+            </div>
+        </section>
+
+
+
+    <script>
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        document.querySelectorAll('.gallery img').forEach(img => {
+            img.addEventListener('click', () => {
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
+                lightbox.style.display = 'flex';
+                lightbox.setAttribute('aria-hidden', 'false');
+            });
+        });
+        document.querySelector('#lightbox .close').addEventListener('click', () => {
+            lightbox.style.display = 'none';
+            lightbox.setAttribute('aria-hidden', 'true');
+        });
+        lightbox.addEventListener('click', (event) => {
+            if (event.target === lightbox) {
+                lightbox.style.display = 'none';
+                lightbox.setAttribute('aria-hidden', 'true');
+            }
+        });
+    </script>
+</body>
+</html>
