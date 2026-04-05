@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>PC MSI - MonPortfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .container{max-width:1100px;margin:auto;}
+        .back{display:inline-block;margin-bottom:20px;padding:10px 14px;background:#0b7285;color:white;border-radius:8px;text-decoration:none;}
+        .project-card{background:linear-gradient(135deg, rgba(14,165,163,0.1), transparent);border:1px solid rgba(14,165,163,0.2);border-radius:16px;padding:24px;margin:20px 0;}
+        .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:16px;}
+        .gallery img{width:100%;border-radius:10px;cursor:pointer;transition:transform .2s ease;border:1px solid rgba(14,165,163,0.2);}
+        .gallery img:hover{transform:scale(1.03);}
+        .lightbox{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.85);z-index:1000;}
+        .lightbox img{max-width:90%;max-height:90%;border:2px solid #fff;border-radius:8px;box-shadow:0 0 24px rgba(0,0,0,.8);}
+        .lightbox .close{position:absolute;top:20px;right:20px;color:#fff;font-size:32px;font-weight:700;cursor:pointer;}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
+                <h1 style="margin:0;font-size:24px;">PC MSI - Build Gaming Client</h1>
+                <button id="hamburger" class="hamburger" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="navlinks" id="navlinks">
+                    <a href="projets_pc.html" style="text-decoration:none;">Retour Projets PC</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        <section>
+            <p class="muted">J'ai monté ce PC gaming performant pour ma meilleure amie. Une belle machine MSI avec un excellent rapport qualité-prix pour du gaming 1440p fluide et fluide.</p>
+        </section>
+
+        <section>
+            <h2>Photos du build</h2>
+            <div class="gallery">
+                <img src="Asset/image/Photo PC Gmaing/PC MSI MAN.jpeg" alt="PC MSI - Vue générale" />
+                <img src="Asset/image/Photo PC Gmaing/PC MSI MAN2.jpeg" alt="PC MSI - Détail" />
+            </div>
+        </section>
+
+        <section>
+            <h2>Spécifications</h2>
+            <div class="project-card">
+                <h3 style="color:var(--accent);margin-top:0;">Configuration complète</h3>
+                <ul style="color:var(--muted);line-height:1.8;">
+                    <li><strong>Processeur :</strong> AMD Ryzen 7 5800X (8 cœurs, 16 threads, 3.8GHz base)</li>
+                    <li><strong>Carte graphique :</strong> NVIDIA RTX 5060 (8GB GDDR6)</li>
+                    <li><strong>Mémoire RAM :</strong> 32GB DDR4 3200MHz (2x16 Corsair Vengeance)</li>
+                    <li><strong>Stockage :</strong> SSD NVMe 500GB</li>
+                    <li><strong>Alimentation :</strong> 750W 80+ Gold (certifié efficace)</li>
+                    <li><strong>Boîtier :</strong> MSI MAG PANO 110R PZ - Mid-Tower (excellente ventilation)</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Points forts</h2>
+            <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:16px;">
+                <div style="flex:1;min-width:200px;background:rgba(255,255,255,0.05);padding:16px;border-radius:12px;">
+                    <strong style="color:var(--accent);">Performance</strong>
+                    <p class="muted">Gaming 1440p ultra settings, performant en multitâche</p>
+                </div>
+                <div style="flex:1;min-width:200px;background:rgba(255,255,255,0.05);padding:16px;border-radius:12px;">
+                    <strong style="color:var(--accent);">Qualité MSI</strong>
+                    <p class="muted">Composants MSI haut de gamme, boîtier robuste</p>
+                </div>
+                <div style="flex:1;min-width:200px;background:rgba(255,255,255,0.05);padding:16px;border-radius:12px;">
+                    <strong style="color:var(--accent);">Esthétique</strong>
+                    <p class="muted">Design moderne avec bonne ventilation visible</p>
+                </div>
+            </div>
+        </section>
+
+        
+        <div style="text-align:center;margin-top:40px">
+            <a href="projets_pc.html" class="btn secondary">← Retour aux Projets PC</a>
+        </div>
+
+        <footer>
+            <div>© <span id="year"></span> — MonPortfolio • <span class="muted">PC MSI</span></div>
+        </footer>
+    </main>
+
+    <div id="lightbox" class="lightbox" aria-hidden="true">
+        <span class="close" aria-label="Fermer">×</span>
+        <img id="lightbox-img" src="" alt="Image agrandie" />
+    </div>
+
+    <script src="Scripts.js"></script>
+    <script>
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        document.querySelectorAll('.gallery img').forEach(img => {
+            img.addEventListener('click', () => {
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
+                lightbox.style.display = 'flex';
+                lightbox.setAttribute('aria-hidden', 'false');
+            });
+        });
+        document.querySelector('#lightbox .close').addEventListener('click', () => {
+            lightbox.style.display = 'none';
+            lightbox.setAttribute('aria-hidden', 'true');
+        });
+        lightbox.addEventListener('click', (event) => {
+            if (event.target === lightbox) {
+                lightbox.style.display = 'none';
+                lightbox.setAttribute('aria-hidden', 'true');
+            }
+        });
+    </script>
+</body>
+</html>
