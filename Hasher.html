@@ -259,6 +259,7 @@
         <label>Service / Application</label>
         <div class="input-wrap">
           <select id="service" onchange="handleService()">
+            <option value="" disabled selected>Sélectionner un service</option>
             <option value="google">Google / Gmail</option>
             <option value="apple">Apple ID</option>
             <option value="microsoft">Microsoft</option>
@@ -271,6 +272,12 @@
 
             <option value="custom">Autre service…</option>
           </select>
+        </div>
+        <div class="field" id="emailField" style="display:none;margin-top:18px;">
+          <label>Adresse Gmail</label>
+          <div class="input-wrap">
+            <input type="email" id="gmailEmail" placeholder="votre.email@gmail.com" autocomplete="off" oninput="onInput()">
+          </div>
         </div>
         <div class="custom-wrap" id="customWrap">
           <div class="input-wrap" style="margin-top:10px">
@@ -361,8 +368,20 @@ function toggleVis(id, btn) {
 function handleService() {
   const v = document.getElementById('service').value;
   const cw = document.getElementById('customWrap');
-  if (v === 'custom') { cw.classList.add('open'); document.getElementById('customService').focus(); }
-  else { cw.classList.remove('open'); }
+  const ef = document.getElementById('emailField');
+  if (v === 'custom') { 
+    cw.classList.add('open'); 
+    document.getElementById('customService').focus(); 
+    ef.style.display = 'none';
+  } else if (v === 'google') {
+    cw.classList.remove('open');
+    ef.style.display = 'block';
+    const savedEmail = localStorage.getItem('gmailEmail') || '';
+    document.getElementById('gmailEmail').value = savedEmail;
+  } else { 
+    cw.classList.remove('open'); 
+    ef.style.display = 'none';
+  }
   onInput();
 }
 
@@ -383,6 +402,7 @@ async function generate() {
   const master = document.getElementById('master').value;
   const sel    = document.getElementById('service').value;
   const custom = document.getElementById('customService').value.trim().toLowerCase();
+  const email  = document.getElementById('gmailEmail').value.trim().toLowerCase();
   const length = parseInt(document.getElementById('length').value, 10);
   const useSymbols = document.getElementById('symbols').checked;
 
@@ -392,7 +412,7 @@ async function generate() {
   const copyBtn   = document.getElementById('copyBtn');
   const strRow    = document.getElementById('strRow');
 
-  if (!master || (sel === 'custom' && !custom)) {
+  if (!master || (sel === 'custom' && !custom) || (sel === 'google' && !email) || sel === '') {
     resultEl.className = 'result-pw dim';
     resultEl.textContent = 'En attente…';
     resultBox.classList.remove('lit');
@@ -401,7 +421,13 @@ async function generate() {
     return;
   }
 
-  const hashBuf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(master + '::' + service));
+  // Save email if google
+  if (sel === 'google') {
+    localStorage.setItem('gmailEmail', email);
+  }
+
+  const input = master + '::' + service + (sel === 'google' ? '::' + email : '');
+  const hashBuf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(input));
   const bytes   = Array.from(new Uint8Array(hashBuf));
 
   let chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
@@ -454,7 +480,8 @@ function genClick(e) {
   const master = document.getElementById('master').value;
   const sel    = document.getElementById('service').value;
   const custom = document.getElementById('customService').value.trim();
-  if (!master || (sel === 'custom' && !custom)) { shake(btn); }
+  const email  = document.getElementById('gmailEmail').value.trim();
+  if (!master || (sel === 'custom' && !custom) || (sel === 'google' && !email) || sel === '') { shake(btn); }
 }
 
 function shake(el) {

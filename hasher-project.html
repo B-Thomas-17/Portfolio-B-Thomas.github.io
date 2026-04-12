@@ -37,10 +37,10 @@
             <h1>Hasher - Générateur de mot de passe sécurisé</h1>
             <p class="muted">App Web locale (hors ligne) pour créer un mot de passe unique par service à partir d'un mot de passe maître.</p>
             <div>
+                <span class="badge">HTML</span>
+                <span class="badge">CSS</span>
                 <span class="badge">JavaScript</span>
-                <span class="badge">Crypto API</span>
-                <span class="badge">Frontend</span>
-                <span class="badge">UX</span>
+                <span class="badge">SHA-256</span>
             </div>
 
             <p>
@@ -62,7 +62,7 @@
             <ul>
                 <li>Entrées: mot de passe maître + service.</li>
                 <li>Hash sécurisé via <code>crypto.subtle.digest('SHA-256', ...)</code>.</li>
-                <li>Transformation du hash en mot de passe de 16 caractères.</li>
+                <li>Transformation du hash en mot de passe de 8 à 32 caractères.</li>
                 <li>Pas de stockage spécifique côté serveur; tout reste local.</li>
             </ul>
         </section>
