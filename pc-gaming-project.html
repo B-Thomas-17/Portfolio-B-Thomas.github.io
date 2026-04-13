@@ -14,7 +14,11 @@
         .lightbox{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.85);z-index:1000;}
         .lightbox img{max-width:90%;max-height:90%;border:2px solid #fff;border-radius:8px;box-shadow:0 0 24px rgba(0,0,0,.8);}
         .lightbox .close{position:absolute;top:20px;right:20px;color:#fff;font-size:32px;font-weight:700;cursor:pointer;}
-        .step-card img{max-width:400px;height:auto;}
+        .step-card img{width:100%;max-width:400px;height:auto;display:block;}
+        @media (max-width: 600px) {
+            .step-card img {max-width:100%;}
+            .gallery {grid-template-columns:1fr;}
+        }
     </style>
 </head>
 <body>
