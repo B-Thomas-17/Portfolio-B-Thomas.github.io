@@ -2,10 +2,11 @@
 const hamburger = document.getElementById('hamburger');
 const navlinks = document.getElementById('navlinks');
 
-if(hamburger) {
+if (hamburger && navlinks) {
     hamburger.addEventListener('click', function() {
         hamburger.classList.toggle('active');
         navlinks.classList.toggle('active');
+        hamburger.setAttribute('aria-expanded', hamburger.classList.contains('active'));
     });
     
     // Fermer le menu quand on clique sur un lien
@@ -13,8 +14,13 @@ if(hamburger) {
         link.addEventListener('click', function() {
             hamburger.classList.remove('active');
             navlinks.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
         });
     });
+} else if (hamburger && !navlinks) {
+    console.warn('Menu hamburger trouvé sans élément #navlinks. Le menu ne peut pas être activé.');
+} else if (navlinks && !hamburger) {
+    console.warn('Élément #navlinks trouvé sans bouton #hamburger.');
 }
 
 // Remplacer par votre adresse réelle
@@ -27,17 +33,26 @@ if(hamburger) {
                 name: f.name.value.trim(),
                 email: f.email.value.trim(),
                 type: f.type.value,
+                platform: f.platform.value,
                 company: f.company.value.trim(),
                 message: f.message.value.trim()
             };
-            if(!data.name || !data.email || !data.type || !data.message){
+            if(!data.name || !data.email || !data.type || !data.platform || !data.message){
                 alert("Merci de remplir les champs obligatoires.");
                 return false;
             }
             const subject = encodeURIComponent(`[${data.type}] Candidature / Contact - ${data.name}`);
-            let body = `Nom: ${data.name}%0D%0AEmail: ${data.email}%0D%0AType: ${data.type}%0D%0AEntreprise: ${data.company}%0D%0A%0D%0AMessage:%0D%0A${encodeURIComponent(data.message)}`;
-            // Ouvre le client mail par défaut
-            window.location.href = `mailto:${DEST_EMAIL}?subject=${subject}&body=${body}`;
+            const bodyText = `Nom: ${data.name}\r\nEmail: ${data.email}\r\nType: ${data.type}\r\nEntreprise: ${data.company}\r\n\r\nMessage:\r\n${data.message}`;
+            const body = encodeURIComponent(bodyText);
+            let url;
+            if(data.platform === 'gmail'){
+                url = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(DEST_EMAIL)}&su=${subject}&body=${body}`;
+            } else if(data.platform === 'outlook'){
+                url = `https://outlook.live.com/owa/?path=/mail/action/compose&to=${encodeURIComponent(DEST_EMAIL)}&subject=${subject}&body=${body}`;
+            } else {
+                url = `mailto:${DEST_EMAIL}?subject=${subject}&body=${body}`;
+            }
+            window.location.href = url;
             return false;
         }
 

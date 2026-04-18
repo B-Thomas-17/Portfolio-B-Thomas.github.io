@@ -36,8 +36,8 @@
     <main class="container">
         <section class="hero" id="home">
             <div class="intro">
-                <h1>Bonjour — Je suis THOMAS Baptiste</h1>
-                <p class="muted">Développeur / Étudiant en informatique — Ceci est mon portfolio, vous pouvez y découvrir mes projets et compétences.</p>
+                <h1>Bonjour — Je suis <span class="highlight">THOMAS Baptiste</span></h1>
+                <p class="muted"><span class="highlight">Développeur</span> / <span class="highlight">Étudiant</span> en informatique — Ceci est mon portfolio, vous pouvez y découvrir mes projets et compétences.</p>
                 <div class="cta">
                     <a class="btn" href="#projects">Voir mes projets</a>
                     <a class="btn secondary" href="#contact">Me contacter</a>
@@ -48,41 +48,46 @@
 
         <section id="about" aria-labelledby="about-title">
             <h2 id="about-title">À propos</h2>
-            <p class="muted">Étudiant passionné par l'informatique côté hardware, j'ai décidé de suivre un BTS SIO afin d'explorer les domaines du développement.</p>
+            <p class="muted">Étudiant passionné par l'informatique côté <span class="highlight">hardware</span>, j'ai décidé de suivre un <span class="highlight">BTS SIO</span> afin d'explorer les domaines du <span class="highlight">développement</span>.</p>
             <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap">
                 <div style="padding:12px;background:rgba(255,255,255,0.02);border-radius:10px">Localisation: FRANCE</div>
                 <div style="padding:12px;background:rgba(255,255,255,0.02);border-radius:10px">Disponibilité: Stage / Freelance</div>
                 <div style="padding:12px;background:rgba(255,255,255,0.02);border-radius:10px">Langues: FR, EN</div>
             </div>
         </section>
-
+        <section id="bts-presentation">
+            <h2>Présentation du BTS SIO</h2>
+            <p class="muted">Le <span class="highlight">BTS SIO</span> se compose de deux options complémentaires, <span class="highlight">SLAM</span> et <span class="highlight">SISR</span>. Voici les grandes lignes de chaque spécialité.</p>
+            <div class="bts-grid">
+                <article class="stage-detail">
+                    <h3>Option SLAM</h3>
+                    <p>SLAM (Solutions Logicielles et Applications Métiers) forme à la conception, au développement et à la maintenance d’applications. C’est l’option orientée programmation, base de données et architecture applicative.</p>
+                    <ul>
+                        <li>Analyse des besoins et conception d’applications.</li>
+                        <li>Développement en environnement web et client/serveur.</li>
+                        <li>Tests, déploiement et documentation technique.</li>
+                    </ul>
+                </article>
+                <article class="stage-detail">
+                    <h3>Option SISR</h3>
+                    <p>SISR (Solutions d’Infrastructure, Systèmes et Réseaux) forme à l’administration des réseaux, des serveurs et des infrastructures. C’est l’option orientée déploiement, supervision et maintenance des systèmes.</p>
+                    <ul>
+                        <li>Installation et administration de serveurs et réseaux.</li>
+                        <li>Gestion de la sécurité et des sauvegardes.</li>
+                        <li>Support technique et optimisation des services.</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
         <section id="skills">
             <h2>Compétences</h2>
             <div class="skills">
-                <div class="skill">
-                    <div style="display:flex;justify-content:space-between;align-items:center">
-                        <strong>HTML & CSS</strong><span class="muted">Avancé</span>
-                    </div>
-                    <div class="bar"><div class="progress" style="width:92%"></div></div>
-                </div>
-                <div class="skill">
-                    <div style="display:flex;justify-content:space-between;align-items:center">
-                        <strong>Maintenance informatique (hardware)</strong><span class="muted">Intermédiaire/Avancé</span>
-                    </div>
-                    <div class="bar"><div class="progress" style="width:82%"></div></div>
-                </div>
-                <div class="skill">
-                    <div style="display:flex;justify-content:space-between;align-items:center">
-                        <strong>JavaScript</strong><span class="muted">Intermédiaire</span>
-                    </div>
-                    <div class="bar"><div class="progress" style="width:70%"></div></div>
-                </div>
-                <div class="skill">
-                    <div style="display:flex;justify-content:space-between;align-items:center">
-                        <strong>Java</strong><span class="muted">Intermédiaire</span>
-                    </div>
-                    <div class="bar"><div class="progress" style="width:66%"></div></div>
-                </div>
+                <span class="skill-pill skill-html">HTML</span>
+                <span class="skill-pill skill-css">CSS</span>
+                <span class="skill-pill skill-js">JavaScript</span>
+                <span class="skill-pill skill-php">PHP</span>
+                <span class="skill-pill skill-java">Java</span>
+                <span class="skill-pill skill-hardware">Maintenance</span>
             </div>
         </section>
 
@@ -230,6 +235,9 @@
                 <a href="https://web.dev" target="_blank" rel="noopener">web.dev — Bonnes pratiques web</a>
                 <a href="https://dev.to" target="_blank" rel="noopener">DEV Community — Tutoriaux</a>
             </div>
+            <div style="margin-top:20px;text-align:center;">
+                <a href="veille.html" class="btn secondary">Voir la veille complète →</a>
+            </div>
         </section>
 
         <section id="contact">
@@ -245,10 +253,16 @@
                     <option value="Projet">Projet</option>
                     <option value="Autre">Autre</option>
                 </select>
+                <select name="platform" required>
+                    <option value="">Envoyer via...</option>
+                    <option value="mailto">Client mail</option>
+                    <option value="gmail">Gmail</option>
+                    <option value="outlook">Outlook</option>
+                </select>
                 <input name="company" placeholder="Entreprise / École (facultatif)" />
                 <textarea name="message" placeholder="Message / Détails" class="full" required></textarea>
                 <div class="full" style="display:flex;gap:12px;align-items:center;justify-content:space-between">
-                    <div class="note">En cliquant sur Envoyer, votre client mail s'ouvrira pour finaliser l'envoi.</div>
+                    <div class="note">En cliquant sur Envoyer, le service choisi s'ouvrira avec un email prérempli.</div>
                     <button class="btn" type="submit">Envoyer</button>
                 </div>
             </form>
