@@ -24,7 +24,7 @@ if (hamburger && navlinks) {
 }
 
 // Remplacer par votre adresse réelle
-        const DEST_EMAIL = "contact@exemple.com";
+        const DEST_EMAIL = "blt1710.pro@gmail.com";
 
         function handleSubmit(e){
             e.preventDefault();
